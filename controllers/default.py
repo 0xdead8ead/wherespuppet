@@ -15,13 +15,14 @@ def index():
     response.menu = [['Home',False,URL('index')],
                      ['Submit',True,URL('submit')],
                      ["Pupp3t's",False,URL('index')]]
-    images = db().select(db.image.ALL, orderby=~db.image.pub_date)
-    return dict(images=images)
+    #images = db().select(db.image.ALL, orderby=~db.image.pub_date)
+    #return dict(images=images)
+    return
     
 def submit():
     response.menu = [['Home',False,URL('index')],
                      ['Submit',True,URL('submit')],
-                     ["Pupp3t's",False,URL('index')]]
+                     ["Pupp3t's",False,URL('show')]]
     form = SQLFORM(db.image, submit_button='Submit Puppet', _id = "submission",formstyle="divs")
     if request.cookies.has_key('posLat') and request.cookies.has_key('posLon') and request.cookies.has_key('posAccuracy'):
         latitude = request.cookies['posLat'].value
