@@ -1,0 +1,27 @@
+timestamp: 2011-07-16T03:45:28.282927
+CREATE TABLE image(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    file CHAR(512),
+    title CHAR(512),
+    handle CHAR(512),
+    location CHAR(512),
+    pub_date TIMESTAMP
+);
+success!
+timestamp: 2011-07-16T03:45:28.285329
+CREATE TABLE comment(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    image_id INTEGER REFERENCES image(id) ON DELETE CASCADE,
+    author CHAR(512),
+    email CHAR(512),
+    body TEXT
+);
+success!
+timestamp: 2011-07-21T03:44:12.764696
+ALTER TABLE image ADD longitude CHAR(512);
+timestamp: 2011-07-21T03:44:12.767252
+ALTER TABLE image ADD latitude CHAR(512);
+timestamp: 2011-07-21T03:55:18.954044
+ALTER TABLE image ADD geotimestamp CHAR(512);
+timestamp: 2012-01-19T13:53:58.819762
+ALTER TABLE image ADD thumb CHAR(512);
