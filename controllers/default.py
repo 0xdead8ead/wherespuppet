@@ -14,11 +14,17 @@ import datetime
 def index():
     response.menu = [['Home',False,URL('index')],
                      ['Submit',True,URL('submit')],
-                     ["Pupp3t's",False,URL('index')]]
-    #images = db().select(db.image.ALL, orderby=~db.image.pub_date)
-    #return dict(images=images)
-    return
-    
+                     ["Pupp3t's",False,URL('show')]]
+    images = db().select(db.image.ALL, orderby=~db.image.pub_date)
+    return dict(images=images)
+
+def puppets():
+    response.menu = [['Home',False,URL('index')],
+                     ['Submit',True,URL('submit')],
+                     ["Pupp3t's",False,URL('show')]]
+    images = db().select(db.image.ALL, orderby=~db.image.pub_date)
+    return dict(images=images)
+
 def submit():
     response.menu = [['Home',False,URL('index')],
                      ['Submit',True,URL('submit')],
@@ -46,7 +52,7 @@ def submit():
 def show():
     response.menu = [['Home',False,URL('index')],
                      ['Submit',True,URL('submit')],
-                     ["Pupp3t's",False,URL('index')]]
+                     ["Pupp3t's",False,URL('show')]]
     image = db(db.image.id==request.args(0)).select().first()
     form = SQLFORM(db.comment)
     form.vars.image_id = image.id
