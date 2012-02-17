@@ -25,6 +25,10 @@ def puppets():
     images = db().select(db.image.ALL, orderby=~db.image.pub_date)
     return dict(images=images)
 
+def mapiframe():
+    images = db().select(db.image.ALL, orderby=~db.image.pub_date)
+    return dict(images=images)
+
 def submit():
     response.menu = [['Home',False,URL('index')],
                      ['Submit',True,URL('submit')],

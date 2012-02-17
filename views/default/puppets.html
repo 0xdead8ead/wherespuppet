@@ -1,6 +1,12 @@
 {{extend 'layout.html'}}
-<h1>Current Images</h1>
+
+
+<h1>Puppets</h1>
 <ul>
+
+<center>
+<iframe src="{{=URL('mapiframe')}}" height="400px" width="300px" frameborder="0"/>
+</center>
 {{for image in images:}}
 {{=LI(A(image.title, _href=URL("show", args=image.id)))}}
 {{pass}}
