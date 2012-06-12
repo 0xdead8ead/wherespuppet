@@ -5,7 +5,7 @@
 <ul>
 
 <center>
-<iframe src="{{=URL('mapiframe')}}" height="400px" width="300px" frameborder="0">
+<iframe src="{{=URL('mapiframe')}}" height="100%" width="100%" frameborder="0">
 </center>
 {{for image in images:}}
 {{=LI(A(image.title, _href=URL("show", args=image.id)))}}

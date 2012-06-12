@@ -24,13 +24,13 @@ try:
              '::1','127.0.0.1','::ffff:127.0.0.1')
 except:
     hosts = (http_host, )
-
+'''
 if request.env.http_x_forwarded_for or request.env.wsgi_url_scheme\
      in ['https', 'HTTPS']:
     session.secure()
 elif (remote_addr not in hosts) and (remote_addr != "127.0.0.1"):
     raise HTTP(200, T('appadmin is disabled because insecure channel'))
-
+'''
 if (request.application=='admin' and not session.authorized) or \
         (request.application!='admin' and not gluon.fileutils.check_credentials(request)):
     redirect(URL('admin', 'default', 'index'))

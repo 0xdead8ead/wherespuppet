@@ -38,12 +38,14 @@ def submit():
         latitude = request.cookies['posLat'].value
         longitude = request.cookies['posLon'].value
         accuracy = request.cookies['posAccuracy'].value    
+        form.vars.latitude = latitude
+        form.vars.longitude = longitude
     else:
-        latitude = 0
-        longitude = 0
-        accuracy = 0
-    form.vars.latitude = latitude
-    form.vars.longitude = longitude
+        response.flash = 'Could Not Obtain Geolocation Data: Please enable Geolocation' 
+        longitude = None
+        latitude = None
+        accuracy = None
+
     if form.accepts(request.vars, session):
         response.flash = 'form accepted'
     elif form.errors:

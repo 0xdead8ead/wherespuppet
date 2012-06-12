@@ -24,10 +24,24 @@
             $.cookie("posLon", longitude, { expires: date });
             $.cookie("posAccuracy", accuracy, { expires: date });
             $.cookie("posTimestamp", timestamp);
-      
+            alert(longitude)
+            //Javascript Cookie
+            //document.cookie = "latitude=" + latitude+";expires=" + date;
+
+        }
+
+        function getGeoLocation() {
+            if (navigator.geolocation) 
+            {
+                navigator.geolocation.getCurrentPosition(success_handler);
+            } 
+            else
+            {
+                alert('GeoLocate Not supported'); //HTML Support
+            }
         } 
 </script>
-<script>initiate_geolocation();</script>
+<script>getGeoLocation();</script>
 {{=form}}
 <br/><br/>
 Current Latitude:{{=latitude}}
